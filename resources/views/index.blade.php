@@ -29,6 +29,25 @@
             'not acess to mass'
         @endif
         <hr/>
+
+        @if (!empty($tasks))
+            @foreach ($tasks as $task )
+                <p>id :{{ $task->id }} userName : {{ $task->userName }} nickname : {{ $task->nickname }} Task :{{ $task->task }} </p>
+            @endforeach
+
+        @else
+            'not acess to mass'
+        @endif
+
+        <hr/>
+        {{--@if (!empty($data1))--}}
+            {{--@foreach ($data1 as $dat )--}}
+                {{--<p>{{ $dat}}</p>--}}
+            {{--@endforeach--}}
+        {{--@else--}}
+            {{--'not acess to mass'--}}
+        {{--@endif--}}
+        <hr/>
         @yield('content')
     </div>
 

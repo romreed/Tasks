@@ -26,7 +26,7 @@ class AddNiknameTableTasklist extends Migration
     public function down()
     {
         Schema::table('taskslist', function (Blueprint $table) {
-            //
+            $table->dropColumn('nickname');
         });
     }
 }
