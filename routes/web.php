@@ -12,10 +12,11 @@
 */
 use app\Http\Controllers\HomeController;
 
-Route::get('/', 'HomeController@index');
-Route::get('/index', 'HomeController@indexNew');
+Route::get('/', ['as'=> 'indexOld','uses' => 'HomeController@index' ]);
+Route::get('/index',['as'=> 'index','uses' => 'HomeController@indexNew']);
+Route::get('/task/{id}/edit',['as'=> 'edit','uses' => 'HomeController@edit'])->where(['id'=>'[0-9]+']);
 
-Route::get('/task/{id}/edit', 'HomeController@edit')->where(['id'=>'[0-9]+']);
+
 
 Route::get('login', function () {
     return view('login');
@@ -34,3 +35,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Маршруты регистрации...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('/task/create', ['as' => 'task.create', 'uses' => 'HomeController@create']);
+Route::post('/task', ['as' => 'task.store', 'uses' => 'HomeController@store']);
+Route::get('/task/{task}', ['as' => 'task.show', 'uses' => 'HomeController@show']);
+Route::get('/task/{task}/edit', ['as' => 'task.edit', 'uses' => 'HomeController@edit']);
+Route::post('/task/{task}', ['as' => 'task.update', 'uses' => 'HomeController@update']);

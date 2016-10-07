@@ -48,6 +48,7 @@
             {{--'not acess to mass'--}}
         {{--@endif--}}
         <hr/>
+        {!! link_to_route('index','index') !!}
         @yield('content')
     </div>
 

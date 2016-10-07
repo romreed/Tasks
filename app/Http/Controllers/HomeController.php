@@ -38,7 +38,11 @@ class HomeController extends Controller
 
     public function create()
     {
-        //
+        $data=[
+            'title' => 'Задания на ларавел',
+            'PageTitle' => '<span style="color: chartreuse">Задания на laravel<span>'
+        ];
+        return view('pages.create')->with($data);
     }
 
     /**
@@ -47,9 +51,13 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Task $task)
     {
-        //
+//        dd($request->all());
+        $sql=$task->insertTask($request->all());
+
+        return redirect()->route('index');
+
     }
 
     /**

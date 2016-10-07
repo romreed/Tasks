@@ -17,7 +17,7 @@ class TasksList extends Migration
             $table->increments('id');
             $table->string('userName');
             $table->text('task');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamps();
         });
     }
