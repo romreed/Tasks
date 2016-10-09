@@ -45,63 +45,53 @@ class HomeController extends Controller
         return view('pages.create')->with($data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request,Task $task)
     {
 //        dd($request->all());
         $sql=$task->insertTask($request->all());
 
-        return redirect()->route('index');
+        return redirect()->route('showList');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show($id,Task $num)
     {
-        //
+//        dd($id);
+        $data['task']  = $num->getDataById($id);
+//        dd($data);
+        return view('pages.show')->with($data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+ public function showList(Task $task)
     {
-        //
+       $data=$task->getData();
+        return view('pages.showList')->with($data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function edit($id,Task $number)
     {
-        //
+        $value['data']=$number->getDataById($id);
+//        dd($value['data']['0']);
+        return view('pages.edit')->with($value);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function update(Request $id,Task $upd)
     {
-        //
+//       dd($id->all());
+       $upd->updateById($id->all());
+        return redirect()->route('showList');
+    }
+
+
+    public function destroy($id,Task $dest)
+    {
+//        dd($id);
+        $dest->destroyById($id);
+        return redirect()->route('showList');
     }
 }
