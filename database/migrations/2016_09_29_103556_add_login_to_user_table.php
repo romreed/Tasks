@@ -14,7 +14,7 @@ class AddLoginToUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('nickname',255)->after('userName');
+            $table->string('nickname',255)->after('name')->nullable();
         });
     }
 

@@ -1,12 +1,17 @@
-@extends('base')
+@extends('layouts.app')
 
 @section('content')
 
 
-{{--    {!! Form::open() !!}--}}
-    {!! Form::open(array('url' => "/task/".$data['0']->id, 'method' => 'post')) !!}
+    <div class="panel-heading"> <h1 class="text-center">Edit</h1> </div>
 
-    @include('_common._editForm')
+<div class="panel-body">
+            {!! Form::open(array('url' => "/task/".$data['0']->id, 'method' => 'post')) !!}
 
-    {!! Form::close() !!}
+            @include('_common._editForm')
+
+            {!! Form::close() !!}
+</div>
+
+
 @stop

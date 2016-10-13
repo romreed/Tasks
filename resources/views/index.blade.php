@@ -32,7 +32,7 @@
 
         @if (!empty($tasks))
             @foreach ($tasks as $task )
-                <p>id :{{ $task->id }} userName : {{ $task->userName }} nickname : {{ $task->nickname }} Task :{{ $task->task }} </p>
+                <p>id :{{ $task->id }} userName : {{ $task->name }} nickname : {{ $task->nickname }} Task :{{ $task->task }} </p>
             @endforeach
 
         @else

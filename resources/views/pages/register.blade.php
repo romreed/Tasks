@@ -6,7 +6,10 @@
         Name
         <input type="text" name="name" value="{{ old('name') }}">
     </div>
-
+    <div>
+        Nickname
+        <input type="text" name="nickname" value="{{ old('nickname') }}">
+    </div>
     <div>
         Email
         <input type="email" name="email" value="{{ old('email') }}">

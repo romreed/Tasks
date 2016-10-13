@@ -1,9 +1,9 @@
-<h1>Edit</h1>
+
 
 {{--{!! Form::open(['route' => 'task.update']) !!}--}}
 <div class="form-group">
     {!! Form::label('user name') !!}
-    {!! Form::text('user_name',$data['0']->userName,['class' => 'form-control']) !!}
+    {!! Form::text('name',$data['0']->name,['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('id') !!}

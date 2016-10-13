@@ -9,7 +9,10 @@ class Task extends Model
     /**
      * @return array
      */
-
+    public function time(){
+        $date=date('Y-m-d H:i:s');
+        return $date;
+    }
 
     public function getData()
     {
@@ -18,10 +21,10 @@ class Task extends Model
     }
     public function insertTask($request)
     {
-        $date=date('Y-m-d H:i:s');
+        $date=$this->time();
 //        dd($request['user_name']);
         DB::table('taskslist')->insert(
-            ['userName' => $request['user_name'],
+            ['name' => $request['name'],
                 'nickname' => $request['nickname'],
                 'task' => $request['task'],
                 'email' =>  $request['email'],
@@ -29,27 +32,19 @@ class Task extends Model
                 'updated_at'=>$date,
             ]
         );
-//DB::insert('insert into users (id, name) values (?, ?)', array(1, 'Dayle'));
-        //DB::update('update users set votes = 100 where name = ?', array('John'));
-        //DB::delete('delete from users');
-        //       DB::table('taskslist')->('select * from tasksList where id = 1',array(1) );
     }
     public function getDataById($id)
     {
-
         $mass= DB::select('select * from tasksList where id =' . "$id", array(1));
         return $mass;
-
     }
     public function updateById($id){
-
 //        dd($id);
-
-        $date=date('Y-m-d H:i:s');
+        $date=$this->time();
         $affected=DB::table('tasksList')
             ->where('id', $id['id'])
             ->update(array(
-                'userName' => $id['user_name'],
+                'name' => $id['name'],
                     'nickname'=>$id['nickname'],
                 'task'=>$id['task'],
                 'email'=>$id['email'],

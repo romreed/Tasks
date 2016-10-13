@@ -14,7 +14,7 @@ class AddNiknameTableTasklist extends Migration
     public function up()
     {
         Schema::table('taskslist', function (Blueprint $table) {
-            $table->string('nickname',255)->after('userName');
+            $table->string('nickname',255)->after('name');
         });
     }
 

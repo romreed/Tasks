@@ -15,7 +15,7 @@ class TasksList extends Migration
     {
         Schema::create('tasksList', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('userName');
+            $table->string('name');
             $table->text('task');
             $table->string('email');
             $table->timestamps();

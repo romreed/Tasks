@@ -1,7 +1,7 @@
-<h1>Create</h1>
+
 <div class="form-group">
     {!! Form::label('user name') !!}
-    {!! Form::text('user_name',null,['class' => 'form-control']) !!}
+    {!! Form::text('name',null,['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('nickname') !!}
