@@ -40,6 +40,10 @@ Route::get('/task/{task}/edit', ['as' => 'task.edit', 'uses' => 'HomeController@
 Route::post('/task/{task}', ['as' => 'task.update', 'uses' => 'HomeController@update'])->where(['task'=>'[0-9]+']);
 Route::get('/task/{task}/destroy', ['as' => 'task.destroy', 'uses' => 'HomeController@destroy'])->where(['task'=>'[0-9]+']);
 Route::get('/showList',['as'=> 'showList','uses' => 'HomeController@showList']);
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', 'HomeController@index');
+
+Route::get('/upload', ['as'=> 'upload','uses' =>'UploadFileController@index']);
+Route::post('/upload',['as'=> 'upload','uses' => 'UploadFileController@upload']);
+
