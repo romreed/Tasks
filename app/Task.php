@@ -23,6 +23,7 @@ class Task extends Model
     {
         $date=$this->time();
 //        dd($request['user_name']);
+
         DB::table('taskslist')->insert(
             ['name' => $request['name'],
                 'nickname' => $request['nickname'],
@@ -37,6 +38,11 @@ class Task extends Model
     {
         $mass= DB::select('select * from tasksList where id =' . "$id", array(1));
         return $mass;
+    }
+
+    public function findById($id){
+        $data['find']=DB::table('tasksList')->where('id', $id)->get();
+        return $data;
     }
     public function updateById($id){
 //        dd($id);

@@ -4,6 +4,7 @@
 <div class="form-group">
     {!! Form::label('user name') !!}
     {!! Form::text('name',$data['0']->name,['class' => 'form-control']) !!}
+{{--    {{ $errors->has('name') ? $errors->first('name') : ''  }}--}}
 </div>
 <div class="form-group">
     {!! Form::label('id') !!}
@@ -27,7 +28,7 @@
     {!! Form::input('date','published_at',date('Y-m-d'),['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::submit('Create',['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Edit',['class' => 'btn btn-primary']) !!}
 
 </div>
 
