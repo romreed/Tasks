@@ -56,6 +56,7 @@ class UploadFileController extends Controller
 
         $destinationPath = 'uploads';
         $file->move($destinationPath,$file->getClientOriginalName());
+
         $file_data['status']='File Good Uploaded';
         return view('pages.uploadFile')->with($file_data);
     }

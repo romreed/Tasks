@@ -15,7 +15,7 @@ return [
     |            "ses", "sparkpost", "log"
     |
     */
-
+    //'auth' => env('SMTPAuth','true'),
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'hello@example.com',
-        'name' => 'Example',
+        'address' => 'elitlegend@gmail.com',
+        'name' => 'Reed',
     ],
 
     /*
@@ -111,5 +111,7 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+
+//    'pretend' => false,
 
 ];
