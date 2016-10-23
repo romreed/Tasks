@@ -11,27 +11,11 @@
 |
 */
 use app\Http\Controllers\HomeController;
+
 Route::get('/', ['as'=> 'indexOld','uses' => 'HomeController@index' ]);
 Route::get('/index',['as'=> 'index','uses' => 'HomeController@indexNew']);
 
 
-//Route::get('login', function () {
-//    return view('login');
-//});
-//Route::get('register', function () {
-//    return view('register');
-//});
-//
-//
-//
-//// Маршруты аутентификации...
-//Route::get('auth/login', 'Auth\AuthController@getLogin');
-//Route::post('auth/login', 'Auth\AuthController@postLogin');
-//Route::get('auth/logout', 'Auth\AuthController@getLogout');
-//
-//// Маршруты регистрации...
-//Route::get('auth/register', 'Auth\AuthController@getRegister');
-//Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/task/create', ['as' => 'task.create', 'uses' => 'HomeController@create']);
 Route::post('/task', ['as' => 'task.store', 'uses' => 'HomeController@store']);
@@ -46,4 +30,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/upload', ['as'=> 'upload','uses' =>'UploadFileController@index']);
 Route::post('/upload',['as'=> 'upload','uses' => 'UploadFileController@upload']);
+
+
+Route::get('/mail', 'MailController@simpleMail');
+
 
