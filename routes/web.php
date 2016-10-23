@@ -37,4 +37,14 @@ Route::get('/session/get', 'SessionController@get');
 Route::get('/session/put', 'SessionController@put');
 Route::get('/session/dell', 'SessionController@dell');
 
+Route::get('/ajax', 'AjaxController@ajax');
+
+Route::post('/ajaxAns','AjaxController@ajaxAns');
+//    function (\Illuminate\Http\Request $request){
+//
+//    return response()->json(['message'=> $request['body']]);
+//})->name('ajax');
+
+
+
 
