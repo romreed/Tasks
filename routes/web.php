@@ -33,5 +33,8 @@ Route::post('/upload',['as'=> 'upload','uses' => 'UploadFileController@upload'])
 
 
 Route::get('/mail', 'MailController@simpleMail');
+Route::get('/session/get', 'SessionController@get');
+Route::get('/session/put', 'SessionController@put');
+Route::get('/session/dell', 'SessionController@dell');
 
 
